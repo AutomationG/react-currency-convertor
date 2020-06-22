@@ -1,3 +1,28 @@
-h1, p {
-  font-family: Lato;
+body{
+  margin:0;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  height: 100vh;
+}
+
+h1{
+  margin: 0;
+  margin-bottom: 0.5rem
+}
+
+input{
+  border: 1px solid black;
+  border-radius: .3rem;
+  padding:0.2rem;
+  width:9rem;
+}
+
+select{
+  margin-left:0.5rem
+}
+
+.equals{
+  font-size: 2rem;
 }
