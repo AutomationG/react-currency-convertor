@@ -29,8 +29,7 @@ function App(){
      setFromCurrency(response.data.base)
      setToCurrency(firstCurrency)
      setConvCurrency(response.data.rates[firstCurrency])
-     })
-   },[])
+     })},[])
 
     const handleFromAmount = (event) => {
     setAmount(event.target.value)
