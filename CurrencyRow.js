@@ -1,7 +1,6 @@
 import React from 'react';
 
 export default function CurrencyRow(props){
-
     return (
       <>
       <input type='number' value={props.amount} onChange={props.handleAmount}/>
