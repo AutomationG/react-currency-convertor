@@ -31,6 +31,12 @@ function App(){
      setConvCurrency(response.data.rates[firstCurrency])
      })},[])
 
+    useEffect(() => {
+     const CURRENCY_URL_CONV = `${CURRENCY_URL}?base=${fromCurrency}&symbols=${toCurrency}`
+     axios.get(CURRENCY_URL_CONV).then((response)=>{
+     setConvCurrency(response.data.rates[toCurrency])
+     })},[toCurrency.fromCurrency])
+
     const handleFromAmount = (event) => {
     setAmount(event.target.value)
     setfromInput(true)
@@ -38,19 +44,19 @@ function App(){
 
     const handleToAmount = (event) => {
     setAmount(event.target.value)
-    setfromInput(true)
+    setfromInput(false)
     }
 
     return (
       <>
       <h1>Convertor</h1>
-      <CurrencyRow options={currencyOption} amount={amount} baseCurrency={fromCurrency} 
-       handleAmount = {handleFromAmount}
+      <CurrencyRow options={currencyOption} amount={fromAmount} 
+      baseCurrency={fromCurrency} handleAmount = {handleFromAmount}
       onChange={ event => setFromCurrency(event.target.value)}/>
       <div className='equals'>=</div>
-      <CurrencyRow options={currencyOption} amount={convCurrency} baseCurrency={toCurrency} 
-      handleAmount = {handleToAmount}
-       onChange={ event => setToCurrency(event.target.value)}/>
+      <CurrencyRow options={currencyOption} amount={toAmount} 
+      baseCurrency={toCurrency} handleAmount = {handleToAmount}
+      onChange={ event => setToCurrency(event.target.value)}/>
       </>
     );
   }
